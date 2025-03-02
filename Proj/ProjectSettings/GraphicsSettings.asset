@@ -57,6 +57,7 @@ GraphicsSettings:
   m_FogKeepExp2: 1
   m_AlbedoSwatchInfos: []
   m_RenderPipelineGlobalSettingsMap:
+    UnityEngine.Rendering.HighDefinition.HDRenderPipeline: {fileID: 11400000, guid: 2664b43f2ca9c1a44b765514711353a3, type: 2}
     UnityEngine.Rendering.Universal.UniversalRenderPipeline: {fileID: 11400000, guid: 3628c3edd9be3b84584d945ac9874dee, type: 2}
   m_LightsUseLinearIntensity: 0
   m_LightsUseColorTemperature: 1
