@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 13a28cac7ac76004888ec46e06566663
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 133037
+  packageName: Polygonal Foliage Asset Package
+  packageVersion: 1.1
+  assetPath: Assets/Aligned Games/Polygonal Foliage Asset Package/Shaders/Cloud.shader
+  uploadId: 533912
