@@ -51,9 +51,9 @@ public class Player : MonoBehaviour
     void ColliderObject()
     {
         Vector3 startPosition = transform.position + Vector3.up * 15f;
-        Debug.DrawRay(startPosition, transform.forward * 10f, Color.red);
+        Debug.DrawRay(startPosition, transform.forward * 12f, Color.red);
 
-        RaycastHit[] hits = Physics.RaycastAll(startPosition, transform.forward, 10);
+        RaycastHit[] hits = Physics.RaycastAll(startPosition, transform.forward, 12);
 
         foreach (RaycastHit hit in hits)
         { 
@@ -72,6 +72,12 @@ public class Player : MonoBehaviour
             if (hitLayer == LayerMask.NameToLayer("Default"))
             {
                 print("충돌!");
+                v = 0;
+            }
+
+            if (hitLayer == LayerMask.NameToLayer("Door"))
+            {
+                print("충돌33");
                 v = 0;
             }
         }
