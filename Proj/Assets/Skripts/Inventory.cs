@@ -15,12 +15,12 @@ public class Inventory : MonoBehaviour
     public TextMeshProUGUI[] slotText;
     public GameObject bridge;
 
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
     private void OnValidate()
     {
         slots = slotParent.GetComponentsInChildren<Slot>();
     }
-#endif
+//#endif
 
     void Awake()
     {
