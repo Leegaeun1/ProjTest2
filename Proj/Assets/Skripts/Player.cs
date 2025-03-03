@@ -102,13 +102,11 @@ public class Player : MonoBehaviour
         //, LayerMask.GetMask("Ground")
         if (Physics.Raycast(startPosition, -transform.up*5f, out rayHit, 5))
         {
-            print("¹Ù´Ú!");
             isGround = true;
             isfalling = false;
         }
         else
         {
-            print("¹Ù´Ú¾Æ´Ô");
             isGround = false;
             isfalling = true;
 
@@ -124,7 +122,6 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGround)
         {
-            print("½ºÆäÀÌ½º ´©¸§");
 
             isJump = true;
             isfalling = false;

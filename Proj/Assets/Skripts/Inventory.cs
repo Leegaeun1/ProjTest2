@@ -28,7 +28,8 @@ public class Inventory : MonoBehaviour
 
         for (int i = 0; i < slots.Length; i++)
         {
-            slotText[i].text = "0";
+            slotText[i].text = "0"; // 처음엔 0으로 초기화
+            slotText[i].gameObject.SetActive(false);
         }
     }
 
@@ -38,7 +39,6 @@ public class Inventory : MonoBehaviour
         for (; i < items.Count && i < slots.Length; i++)
         {
             slots[i].item = items[i];
-            
         }
 
         for (; i < slots.Length; i++)
@@ -53,6 +53,7 @@ public class Inventory : MonoBehaviour
         int i = 0;
         for (;i < slots.Length; i++)
         {
+            slotText[i].gameObject.SetActive(true);
             if (slots[i].item != null && slots[i].item.itemName == name)
             {
                 print("correct");
@@ -79,4 +80,6 @@ public class Inventory : MonoBehaviour
             print("슬롯이 가득 차 있습니다.");
         }
     }
+
+    
 }

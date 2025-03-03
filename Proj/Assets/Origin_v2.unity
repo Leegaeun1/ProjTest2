@@ -1124,7 +1124,7 @@ GameObject:
   - component: {fileID: 269683342}
   - component: {fileID: 269683341}
   m_Layer: 5
-  m_Name: SlotItem
+  m_Name: SlotItem5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6372,7 +6372,7 @@ GameObject:
   - component: {fileID: 1036967143}
   - component: {fileID: 1036967142}
   m_Layer: 5
-  m_Name: SlotItem
+  m_Name: SlotItem2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6585,7 +6585,7 @@ GameObject:
   - component: {fileID: 1103382820}
   - component: {fileID: 1103382819}
   m_Layer: 5
-  m_Name: SlotItem
+  m_Name: SlotItem9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9644,7 +9644,7 @@ GameObject:
   - component: {fileID: 1654972087}
   - component: {fileID: 1654972086}
   m_Layer: 5
-  m_Name: SlotItem
+  m_Name: SlotItem6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11324,7 +11324,7 @@ GameObject:
   - component: {fileID: 1866657259}
   - component: {fileID: 1866657261}
   m_Layer: 5
-  m_Name: SlotItem
+  m_Name: SlotItem1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11362,7 +11362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.28235295}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.49803922}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11648,7 +11648,7 @@ GameObject:
   - component: {fileID: 1882914752}
   - component: {fileID: 1882914751}
   m_Layer: 5
-  m_Name: SlotItem
+  m_Name: SlotItem3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11913,7 +11913,7 @@ GameObject:
   - component: {fileID: 1918032506}
   - component: {fileID: 1918032505}
   m_Layer: 5
-  m_Name: SlotItem
+  m_Name: SlotItem4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12002,7 +12002,7 @@ GameObject:
   - component: {fileID: 1920356132}
   - component: {fileID: 1920356131}
   m_Layer: 5
-  m_Name: SlotItem
+  m_Name: SlotItem8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13236,6 +13236,7 @@ GameObject:
   - component: {fileID: 2010806503}
   - component: {fileID: 2010806502}
   - component: {fileID: 2010806504}
+  - component: {fileID: 2010806505}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -13337,6 +13338,18 @@ MonoBehaviour:
   - {fileID: 1387176873}
   - {fileID: 2009790031}
   bridge: {fileID: 1835976684}
+--- !u!114 &2010806505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010806500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70d145789512f5419bf427d95b37fe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2035337977 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7574543213555425284, guid: 073396c3dd947234db3fea38dfa48fe3, type: 3}
@@ -13580,7 +13593,7 @@ GameObject:
   - component: {fileID: 2059282805}
   - component: {fileID: 2059282804}
   m_Layer: 5
-  m_Name: SlotItem
+  m_Name: SlotItem7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
