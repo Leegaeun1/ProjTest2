@@ -882,7 +882,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 20
   rotateSpeed: 100
+  mouseSensitivity: 400
   jumpForce: 5
+  inven: {fileID: 0}
+  inven11: {fileID: 0}
 --- !u!1 &5250466237806132889
 GameObject:
   m_ObjectHideFlags: 0

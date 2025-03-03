@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5197d2063b4ca6c45b7faeb762aa5cc5, type: 3}
   m_Name: Logs
   m_EditorClassIdentifier: 
-  itemName: Logs
+  itemName: log
   itemImage: {fileID: 21300000, guid: 9fbcc0e262db0bd448ed79f5286482cf, type: 3}

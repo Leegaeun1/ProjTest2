@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
     private Rigidbody rb;
     Animator anim;
 
+    public Inventory inven11;
+
     void Start()
     {
         ry=transform.eulerAngles.y;
@@ -53,10 +55,10 @@ public class Player : MonoBehaviour
         Vector3 startPosition = transform.position + Vector3.up * 15f;
         Debug.DrawRay(startPosition, transform.forward * 12f, Color.red);
 
-        RaycastHit[] hits = Physics.RaycastAll(startPosition, transform.forward, 12);
+        RaycastHit hit;
 
-        foreach (RaycastHit hit in hits)
-        { 
+        if (Physics.Raycast(startPosition, transform.forward, out hit, 12))
+        {
             int hitLayer = hit.collider.gameObject.layer;
 
             if (hitLayer == LayerMask.NameToLayer("Logs"))
@@ -65,6 +67,12 @@ public class Player : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.G)) // 나무 얻기
                 {
                     print("나무 습득!");
+                    string hitname = hit.collider.gameObject.name;
+                    if (hitname.Substring(0, 3) == "log")
+                    {
+                        print(hit.collider.gameObject.name);
+                        inven11.Check("log");
+                    }
                     Destroy(hit.collider.gameObject);
                 }
             }
@@ -78,9 +86,11 @@ public class Player : MonoBehaviour
             if (hitLayer == LayerMask.NameToLayer("Door"))
             {
                 print("충돌33");
+                
                 v = 0;
             }
         }
+        
     }
 
 
