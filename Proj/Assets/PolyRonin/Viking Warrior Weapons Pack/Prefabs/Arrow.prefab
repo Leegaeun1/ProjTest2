@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  arcHeight: 200
+  arcHeight: 300
 --- !u!64 &1858683589669229317
 MeshCollider:
   m_ObjectHideFlags: 0

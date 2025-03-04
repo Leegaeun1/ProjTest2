@@ -9,18 +9,18 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
 
-    public float Speed = 20.0f;     // ¿òÁ÷ÀÌ´Â ¼Óµµ
+    public float Speed = 20.0f;     // ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½Óµï¿½
     float ry;
     float h, v;
     public float rotateSpeed=100.0f;
     private float MouseY;
     private float MouseX;
-    public float mouseSensitivity = 400f; //¸¶¿ì½º°¨µµ
+    public float mouseSensitivity = 400f; //ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ï¿½ï¿½
 
     //bool isWalking = false;
     bool isJump = false;
     bool isfalling = true;
-    bool isClick = false; // ÀÎº¥Åä¸® Å¬¸¯Çß´ÂÁö
+    bool isClick = false; // ï¿½Îºï¿½ï¿½ä¸® Å¬ï¿½ï¿½ï¿½ß´ï¿½ï¿½ï¿½
 
     bool isGround = true;
     //bool isRun = false;
@@ -61,17 +61,14 @@ public class Player : MonoBehaviour
 
             if (hitLayer == LayerMask.NameToLayer("Logs"))
             {
-                print("³ª¹«");
-                if (Input.GetKeyDown(KeyCode.G)) // ³ª¹« ¾ò±â
+                if (Input.GetKeyDown(KeyCode.G)) // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
                 {
-                    print("³ª¹« ½Àµæ!");
                     Destroy(hit.collider.gameObject);
                 }
             }
 
             if (hitLayer == LayerMask.NameToLayer("Default"))
             {
-                print("Ãæµ¹!");
                 v = 0;
             }
         }
@@ -86,13 +83,11 @@ public class Player : MonoBehaviour
         //, LayerMask.GetMask("Ground")
         if (Physics.Raycast(startPosition, -transform.up*5f, out rayHit, 5))
         {
-            print("¹Ù´Ú!");
             isGround = true;
             isfalling = false;
         }
         else
         {
-            print("¹Ù´Ú¾Æ´Ô");
             isGround = false;
             isfalling = true;
 
@@ -104,11 +99,11 @@ public class Player : MonoBehaviour
 
 
 
-    private void Jump() // ¼öÁ¤ÇÏ±â
+    private void Jump() // ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGround)
         {
-            print("½ºÆäÀÌ½º ´©¸§");
+            print("ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 
             isJump = true;
             isfalling = false;
@@ -120,7 +115,7 @@ public class Player : MonoBehaviour
     }
 
 
-    void JumpBool() // ¾Ö´Ï¸ÞÀÌ¼Ç ÀÌº¥Æ®
+    void JumpBool() // ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½Ìºï¿½Æ®
     {
         print(1);
         isJump = false;
@@ -160,12 +155,12 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             
-            if (!isClick) // ÀÎº¥Åä¸® ´Ý±â
+            if (!isClick) // ï¿½Îºï¿½ï¿½ä¸® ï¿½Ý±ï¿½
             {
                 inven.SetActive(false);
                 isClick = true;
             }
-            else // ÀÎº¥Åä¸® ¿­±â
+            else // ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½
             {
                 inven.SetActive(true);
                 isClick = false;
@@ -179,7 +174,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Object"))
         {
             v = 0;
-            print("Ãæµ¹22");
+            print("ï¿½æµ¹22");
         }
     }
 }
