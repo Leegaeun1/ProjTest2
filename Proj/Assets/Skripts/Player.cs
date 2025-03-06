@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class Player : MonoBehaviour
     bool isClick = false; // 인벤토리 클릭했는지
 
     bool isGround = true;
-    //bool isRun = false;
+    bool sitDown = false;
 
     public float jumpForce = 10f;
     public GameObject inven;
@@ -44,15 +45,16 @@ public class Player : MonoBehaviour
         h = Input.GetAxis("Horizontal");
         ColliderObject();
         GroundCheck();
+        
         Move();
         Jump();
         Inven();
-
+        SitDown();
 
     }
     void ColliderObject()
     {
-        Vector3 startPosition = transform.position + Vector3.up * 15f;
+        Vector3 startPosition = transform.position + Vector3.up * 10f;
         Debug.DrawRay(startPosition, transform.forward * 12f, Color.red);
 
         RaycastHit hit;
@@ -61,21 +63,8 @@ public class Player : MonoBehaviour
         {
             int hitLayer = hit.collider.gameObject.layer;
 
-            if (hitLayer == LayerMask.NameToLayer("Logs"))
-            {
-                print("나무");
-                if (Input.GetKeyDown(KeyCode.G)) // 나무 얻기
-                {
-                    print("나무 습득!");
-                    string hitname = hit.collider.gameObject.name;
-                    if (hitname.Substring(0, 3) == "log")
-                    {
-                        print(hit.collider.gameObject.name);
-                        inven11.Check("log");
-                    }
-                    Destroy(hit.collider.gameObject);
-                }
-            }
+            LayerCheck("log", hit, hitLayer);
+            LayerCheck("flower", hit, hitLayer);
 
             if (hitLayer == LayerMask.NameToLayer("Default"))
             {
@@ -93,6 +82,23 @@ public class Player : MonoBehaviour
         
     }
 
+    void LayerCheck(string name, RaycastHit hit, int hitLayer)
+    {
+        if (hitLayer == LayerMask.NameToLayer(name))
+        {
+            if (Input.GetKeyDown(KeyCode.G)) // 물체 얻기
+            {
+                print("습득!");
+                string hitname = hit.collider.gameObject.name;
+                if (hitname.Substring(0, name.Length) == name)
+                {
+                    print(hit.collider.gameObject.name);
+                    inven11.Check(name);
+                }
+                Destroy(hit.collider.gameObject);
+            }
+        }
+    }
 
     void GroundCheck()
     {
@@ -142,6 +148,7 @@ public class Player : MonoBehaviour
 
     void Move()
     {
+        
         if (Input.GetButton("Sprint")) // Run
         {
             Speed = 50.0f;
@@ -187,6 +194,32 @@ public class Player : MonoBehaviour
         }
     }
 
+
+    void SitDown()
+    {
+        BoxCollider character = GetComponent<BoxCollider>();
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            
+            if (!sitDown)
+            {
+                sitDown = true; // 왜 올라가지,,,,............
+                character.center = new Vector3(character.center.x, +1.4f, character.center.z);
+                
+            }
+            else
+            {
+                sitDown = false;
+                character.center = new Vector3(character.center.x, 0.8808745f, character.center.z);
+            }
+            anim.SetBool("sitDown", sitDown);
+        }
+        if (sitDown)
+        {
+            transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+        }
+
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Object"))
@@ -195,4 +228,5 @@ public class Player : MonoBehaviour
             print("충돌22");
         }
     }
+
 }

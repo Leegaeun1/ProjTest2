@@ -12,6 +12,7 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private Slot[] slots;
 
+
     public TextMeshProUGUI[] slotText;
     public GameObject bridge;
 
@@ -32,6 +33,7 @@ public class Inventory : MonoBehaviour
             slotText[i].gameObject.SetActive(false);
         }
     }
+
 
     public void FreshSlot()
     {
@@ -62,8 +64,12 @@ public class Inventory : MonoBehaviour
 
             if (int.Parse(slotText[i].text) == 5)
             {
-                print("나무를 5개 모았습니다!");
-                bridge.SetActive(true);
+                if (!bridge.activeSelf) // 다리가 공개되지 않았을때
+                {
+                    print("나무를 5개 모았습니다!");
+                    bridge.SetActive(true);
+                    slotText[i].text = "0";
+                }
             }
         }
     }
@@ -81,5 +87,5 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    
+
 }
