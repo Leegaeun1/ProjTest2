@@ -33,13 +33,13 @@ public class Inventory : MonoBehaviour
         FreshSlot();
         slotText = new TextMeshProUGUI[9];
 
-        for(int i=1; i < 10; i++)
+        for(int i=0; i < 9; i++)
         {
-            GameObject textObj = GameObject.Find("num" + i);
+            GameObject textObj = GameObject.Find("num" + (i+1));
 
             if (textObj != null)
             {
-                slotText[i-1] = textObj.GetComponent<TextMeshProUGUI>();
+                slotText[i] = textObj.GetComponent<TextMeshProUGUI>();
             }
         }
 
@@ -71,7 +71,7 @@ public class Inventory : MonoBehaviour
         int i = 0;
         for (; i < slots.Length; i++)
         {
-            if (slots[i].item != null) // && slots[i].item.itemName.Substring(0, 3) == name.Substring(0, 3)
+            if (slots[i].item != null)
             {
                 print("correct");
                 if (name.Substring(0, 3) == "log" && "log" == slots[i].item.itemName.Substring(0, 3))

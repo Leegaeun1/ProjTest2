@@ -4,7 +4,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using TMPro;
 
 public class UIEvent : MonoBehaviour, IPointerClickHandler
 {
@@ -28,11 +27,11 @@ public class UIEvent : MonoBehaviour, IPointerClickHandler
 
             if (slotText[num-1].gameObject.GetComponent<TextMeshProUGUI>().text != "0")
             {
-                prevObject.GetComponent<Image>().color = new Color(255, 255, 255, 1); // 아이템이있다면 ..
+                prevObject.GetComponent<Image>().color = new Color(1, 1, 1, 1); // 아이템이있다면 ..
             }
             else
             {
-                prevObject.GetComponent<Image>().color = new Color(255, 255, 255, 0); // 아이템이없다면 ..
+                prevObject.GetComponent<Image>().color = new Color(1, 1, 1, 0); // 아이템이없다면 ..
             }
             
 
@@ -47,12 +46,6 @@ public class UIEvent : MonoBehaviour, IPointerClickHandler
             prevObject = clickedObject;
         }
 
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
 }
