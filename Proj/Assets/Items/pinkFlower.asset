@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5197d2063b4ca6c45b7faeb762aa5cc5, type: 3}
-  m_Name: Red Flowers
+  m_Name: pinkFlower
   m_EditorClassIdentifier: 
-  itemName: flower
-  itemImage: {fileID: 21300000, guid: c50b427d5c618bf4580f3b767232a0b8, type: 3}
+  itemName: flower3
+  itemImage: {fileID: 21300000, guid: bb72a78d13feb6f48a15387b668c6e82, type: 3}

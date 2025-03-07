@@ -18,13 +18,10 @@ public class Player : MonoBehaviour
     private float MouseX;
     public float mouseSensitivity = 400f; //마우스감도
 
-    //bool isWalking = false;
     bool isJump = false;
     bool isfalling = true;
     bool isClick = false; // 인벤토리 클릭했는지
-
     bool isGround = true;
-    //bool sitDown = false;
 
     public float jumpForce = 10f;
     public GameObject inven;
@@ -35,7 +32,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        ry=transform.eulerAngles.y;
+        //ry=transform.eulerAngles.y;
         anim=GetComponent<Animator>();
         rb=GetComponent<Rigidbody>();
     }
@@ -55,17 +52,19 @@ public class Player : MonoBehaviour
     void ColliderObject()
     {
         Vector3 startPosition = transform.position + Vector3.up * 10f;
-        Debug.DrawRay(startPosition, transform.forward * 12f, Color.red);
+        //Debug.DrawRay(startPosition, transform.forward * 12f, Color.red);
 
         RaycastHit hit;
 
         if (Physics.Raycast(startPosition, transform.forward, out hit, 12))
         {
             int hitLayer = hit.collider.gameObject.layer;
-
-            LayerCheck("log", hit, hitLayer);
-            LayerCheck("flower", hit, hitLayer);
-
+            string hitName = hit.collider.gameObject.name;
+            print(hitName);
+            if (Input.GetKeyDown(KeyCode.G)) // 물체 얻기
+            {
+                LayerCheck(hitName, hit, hitLayer);
+            } 
             if (hitLayer == LayerMask.NameToLayer("Default"))
             {
                 print("충돌!");
@@ -78,26 +77,23 @@ public class Player : MonoBehaviour
                 
                 v = 0;
             }
+            return;
+            //if (hit.collider.gameObject.name.Substring(0,3)=="pot")
+            //{
+            //    int potNum = int.Parse(hit.collider.gameObject.name.Substring(2, 1));
+            //    // pot 숫자와 flower뒤의 숫자가 같아야함
+            //}
         }
         
     }
 
     void LayerCheck(string name, RaycastHit hit, int hitLayer)
     {
-        if (hitLayer == LayerMask.NameToLayer(name))
+        if (hitLayer == LayerMask.NameToLayer("flower") || hitLayer == LayerMask.NameToLayer("log"))
         {
-            if (Input.GetKeyDown(KeyCode.G)) // 물체 얻기
-            {
-                print("습득!");
-                string hitname = hit.collider.gameObject.name;
-                if (hitname.Substring(0, name.Length) == name)
-                {
-                    print(hit.collider.gameObject.name);
-                    inven11.Check(name);
-                }
-                print(1);
-                Destroy(hit.collider.gameObject);
-            }
+            print("습득!"); //왜 꽃은 3개씩 먹어지는것?
+            inven11.Check(name);
+            Destroy(hit.collider.gameObject);
         }
     }
 

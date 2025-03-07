@@ -69,16 +69,37 @@ public class Inventory : MonoBehaviour
     {
         FreshSlot();
         int i = 0;
-        for (;i < slots.Length; i++)
+        for (; i < slots.Length; i++)
         {
-            slotText[i].gameObject.SetActive(true);
-            if (slots[i].item != null && slots[i].item.itemName == name)
+            if (slots[i].item != null) // && slots[i].item.itemName.Substring(0, 3) == name.Substring(0, 3)
             {
                 print("correct");
-                slotText[i].text = (int.Parse(slotText[i].text) + 1).ToString();
+                if (name.Substring(0, 3) == "log" && "log" == slots[i].item.itemName.Substring(0, 3))
+                {
+                    print(name);
+                    slotText[0].text = (int.Parse(slotText[0].text) + 1).ToString();
+                }
+                else if (name.Substring(0, 3) == "flo" && name == slots[i].item.itemName) //슬롯과 이름이 같을때만 
+                {
+                    int slotnum = int.Parse(name.Substring(name.Length - 1, 1));
+                    print(slotnum);
+                    slotText[slotnum].text = (int.Parse(slotText[slotnum].text) + 1).ToString();
+                    break;
+                }
+            }
+        }
+        for(i = 0; i < slots.Length; i++) { 
+
+            if (slotText[i].text != "0") //0이 아니면 숫자가 보임
+            {
+                slotText[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                slotText[i].gameObject.SetActive(false);
             }
 
-            if (int.Parse(slotText[i].text) == 5)
+            if (int.Parse(slotText[i].text) == 5 && slotText[i].name == "log")
             {
                 if (!bridge.activeSelf) // 다리가 공개되지 않았을때
                 {
@@ -89,6 +110,7 @@ public class Inventory : MonoBehaviour
             }
         }
     }
+
 
     public void AddItem(Item _item)
     {
