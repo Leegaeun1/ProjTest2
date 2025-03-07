@@ -7,6 +7,7 @@ public class Inventory : MonoBehaviour
 {
     public List<Item> items;
 
+    public static Inventory Instance;
     [SerializeField]
     private Transform slotParent;
     [SerializeField]
@@ -25,7 +26,22 @@ public class Inventory : MonoBehaviour
 
     void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
         FreshSlot();
+        slotText = new TextMeshProUGUI[9];
+
+        for(int i=1; i < 10; i++)
+        {
+            GameObject textObj = GameObject.Find("num" + i);
+
+            if (textObj != null)
+            {
+                slotText[i-1] = textObj.GetComponent<TextMeshProUGUI>();
+            }
+        }
 
         for (int i = 0; i < slots.Length; i++)
         {

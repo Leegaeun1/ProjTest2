@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     bool isClick = false; // 인벤토리 클릭했는지
 
     bool isGround = true;
-    bool sitDown = false;
+    //bool sitDown = false;
 
     public float jumpForce = 10f;
     public GameObject inven;
@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
         Move();
         Jump();
         Inven();
-        SitDown();
+        //SitDown();
 
     }
     void ColliderObject()
@@ -95,6 +95,7 @@ public class Player : MonoBehaviour
                     print(hit.collider.gameObject.name);
                     inven11.Check(name);
                 }
+                print(1);
                 Destroy(hit.collider.gameObject);
             }
         }
@@ -195,31 +196,31 @@ public class Player : MonoBehaviour
     }
 
 
-    void SitDown()
-    {
-        BoxCollider character = GetComponent<BoxCollider>();
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            
-            if (!sitDown)
-            {
-                sitDown = true; // 왜 올라가지,,,,............
-                character.center = new Vector3(character.center.x, +1.4f, character.center.z);
-                
-            }
-            else
-            {
-                sitDown = false;
-                character.center = new Vector3(character.center.x, 0.8808745f, character.center.z);
-            }
-            anim.SetBool("sitDown", sitDown);
-        }
-        if (sitDown)
-        {
-            transform.position = new Vector3(transform.position.x, 0, transform.position.z);
-        }
+    //void SitDown()
+    //{
+    //    BoxCollider character = GetComponent<BoxCollider>();
+    //    if (Input.GetKeyDown(KeyCode.LeftControl))
+    //    {
 
-    }
+    //        if (!sitDown)
+    //        {
+    //            sitDown = true; // 왜 올라가지,,,,............
+    //            character.center = new Vector3(character.center.x, +1.4f, character.center.z);
+
+    //        }
+    //        else
+    //        {
+    //            sitDown = false;
+    //            character.center = new Vector3(character.center.x, 0.8808745f, character.center.z);
+    //        }
+    //        anim.SetBool("sitDown", sitDown);
+    //    }
+    //    if (sitDown)
+    //    {
+    //        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+    //    }
+    //}
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Object"))

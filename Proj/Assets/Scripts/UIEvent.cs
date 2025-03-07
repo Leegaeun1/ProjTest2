@@ -4,18 +4,38 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIEvent : MonoBehaviour, IPointerClickHandler
 {
     GameObject prevObject;
     GameObject clickedObject;
-    Inventory text;
-    int textNum;
+    TextMeshProUGUI[] slotText;
+
+
+    private void Start()
+    {
+        slotText = Inventory.Instance.slotText;
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (prevObject != null)
         {
-            prevObject.GetComponent<Image>().color = new Color(255, 255, 255, 0f); // 밝게해줌
+            int num = int.Parse(prevObject.name.Substring(8, 1));
+            print(num);
+
+
+            if (slotText[num-1].gameObject.GetComponent<TextMeshProUGUI>().text != "0")
+            {
+                prevObject.GetComponent<Image>().color = new Color(255, 255, 255, 1); // 아이템이있다면 ..
+            }
+            else
+            {
+                prevObject.GetComponent<Image>().color = new Color(255, 255, 255, 0); // 아이템이없다면 ..
+            }
+            
+
         }
 
         clickedObject = eventData.pointerCurrentRaycast.gameObject;
@@ -27,12 +47,6 @@ public class UIEvent : MonoBehaviour, IPointerClickHandler
             prevObject = clickedObject;
         }
 
-        
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
         
     }
 
