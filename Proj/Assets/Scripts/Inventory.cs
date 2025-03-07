@@ -99,7 +99,7 @@ public class Inventory : MonoBehaviour
                 slotText[i].gameObject.SetActive(false);
             }
 
-            if (int.Parse(slotText[i].text) == 5 && slotText[i].name == "log")
+            if (int.Parse(slotText[i].text) == 5 && slots[i].item.itemName == "log")
             {
                 if (!bridge.activeSelf) // 다리가 공개되지 않았을때
                 {

@@ -9,6 +9,8 @@ TagManager:
   - CinemachineTarget
   - Ground
   - Object
+  - flower
+  - log
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - Player
   - Walls
   - Ground
-  - log
-  - flower
+  - 
+  - 
   - 
   - 
   - 

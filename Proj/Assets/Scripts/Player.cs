@@ -58,12 +58,13 @@ public class Player : MonoBehaviour
 
         if (Physics.Raycast(startPosition, transform.forward, out hit, 12))
         {
+            string hitString = hit.collider.gameObject.tag;
             int hitLayer = hit.collider.gameObject.layer;
             string hitName = hit.collider.gameObject.name;
-            print(hitName);
+            print(hitString);
             if (Input.GetKeyDown(KeyCode.G)) // ¹°Ã¼ ¾ò±â
             {
-                LayerCheck(hitName, hit, hitLayer);
+                LayerCheck(hitName, hit, hitString);
             } 
             if (hitLayer == LayerMask.NameToLayer("Default"))
             {
@@ -87,11 +88,11 @@ public class Player : MonoBehaviour
         
     }
 
-    void LayerCheck(string name, RaycastHit hit, int hitLayer)
+    void LayerCheck(string name, RaycastHit hit, string hitString)
     {
-        if (hitLayer == LayerMask.NameToLayer("flower") || hitLayer == LayerMask.NameToLayer("log"))
+        if (hitString == "flower" || hitString == "log")
         {
-            print("½Àµæ!"); //¿Ö ²ÉÀº 3°³¾¿ ¸Ô¾îÁö´Â°Í?
+            print("½Àµæ!"); 
             inven11.Check(name);
             Destroy(hit.collider.gameObject);
         }
